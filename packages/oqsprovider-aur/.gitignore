@@ -1,0 +1,7 @@
+liboqs
+oqsprovider
+src
+pkg
+*.sh
+*.log
+*.tar.*

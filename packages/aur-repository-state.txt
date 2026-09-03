@@ -1,0 +1,29 @@
+===== liboqs AUR COMMIT =====
+commit 62271f5ed6482626004a54889e2145138ac8d669
+Author:     Iyán Méndez Veiga <me@iyanmv.com>
+AuthorDate: Fri Jul 10 11:03:03 2026 +0200
+Commit:     Iyán Méndez Veiga <me@iyanmv.com>
+CommitDate: Fri Jul 10 11:03:03 2026 +0200
+
+    upgpkg: liboqs 1:0.16.0-1
+    
+    upstream release
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+===== oqsprovider AUR COMMIT =====
+commit 3a8700abd33b5197be7e9d64383d77d0a9d236ab
+Author:     Iyán Méndez Veiga <me@iyanmv.com>
+AuthorDate: Wed Dec 24 16:00:41 2025 +0100
+Commit:     Iyán Méndez Veiga <me@iyanmv.com>
+CommitDate: Wed Dec 24 16:00:41 2025 +0100
+
+    upgpkg: oqsprovider 1:0.11.0-1
+    
+    upstream release
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean

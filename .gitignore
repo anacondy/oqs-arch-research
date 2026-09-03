@@ -1,0 +1,22 @@
+# Build outputs
+work/
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.pkg.tar.gz
+*.deb
+*.rpm
+
+# Temporary source/build directories
+build/
+_build/
+src/
+pkg/
+
+# Logs containing local-only information
+logs/*.tmp
+
+# Editors and OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store

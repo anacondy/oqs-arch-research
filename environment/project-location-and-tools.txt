@@ -1,0 +1,47 @@
+===== PROJECT ROOT =====
+/home/simone/Projects/oqs-arch-research
+
+===== GIT ROOT =====
+/home/simone/Projects/oqs-arch-research
+
+===== FILESYSTEM =====
+TARGET SOURCE    FSTYPE OPTIONS
+/      /dev/sda2 ext4   rw,relatime
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        30G   24G  4.9G  83% /
+
+===== PROJECT DIRECTORY =====
+.
+./environment
+./.git
+./.git/hooks
+./.git/info
+./.git/logs
+./.git/objects
+./.git/refs
+./logs
+./packages
+./packages/liboqs-aur
+./packages/oqsprovider-aur
+./scripts
+./tests
+./work
+./work/builds
+./work/chroots
+./work/packages
+./work/sources
+
+===== REQUIRED COMMANDS =====
+git                     /usr/bin/git
+makepkg                 /usr/bin/makepkg
+pacman                  /usr/bin/pacman
+gcc                     /usr/bin/gcc
+g++                     /usr/bin/g++
+cmake                   NOT FOUND
+ninja                   NOT FOUND
+openssl                 /usr/bin/openssl
+python                  /usr/bin/python
+pytest                  NOT FOUND
+namcap                  NOT FOUND
+extra-x86_64-build      NOT FOUND
+mkarchroot              NOT FOUND

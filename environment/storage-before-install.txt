@@ -1,0 +1,28 @@
+===== LARGE DIRECTORIES UNDER HOME =====
+4.0K	/home/simone/Documents
+4.0K	/home/simone/Music
+4.0K	/home/simone/oqs-research
+4.0K	/home/simone/Public
+4.0K	/home/simone/Screenshots
+4.0K	/home/simone/Templates
+4.0K	/home/simone/Videos
+8.0K	/home/simone/Desktop
+12K	/home/simone/.copilot
+16K	/home/simone/DataUsageLogs
+16K	/home/simone/.vscode-oss
+32K	/home/simone/.vscode-oss-shared
+600K	/home/simone/Downloads
+2.4M	/home/simone/3-Bad-day-24-CRT-SPACESHIP-
+4.4M	/home/simone/.var
+6.4M	/home/simone/Pictures
+71M	/home/simone/.npm
+114M	/home/simone/.local
+130M	/home/simone/.config
+231M	/home/simone/.cargo
+1.5G	/home/simone/.rustup
+2.2G	/home/simone/.cache
+4.1G	/home/simone/Projects
+8.3G	/home/simone
+
+===== PACMAN CACHE =====
+2.6G	/var/cache/pacman/pkg

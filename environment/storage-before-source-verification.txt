@@ -1,0 +1,5 @@
+2026-09-03T17:11:28+05:30
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        30G   24G  4.6G  84% /
+960K	.
+2.4G	/var/cache/pacman/pkg

@@ -1,0 +1,36 @@
+===== PACMAN REPOSITORIES =====
+2026-09-03T17:42:39+05:30
+core
+extra
+
+===== PACMAN PACKAGE DATABASE SAMPLE =====
+core acl 2.4.0-1 [installed]
+core amd-ucode 20260810-2
+core archlinux-keyring 20260727-1 [installed]
+core attr 2.6.0-1 [installed]
+core audispd-plugins 4.2.1-1
+core audispd-plugins-zos 4.2.1-1
+core audit 4.2.1-1 [installed]
+core autoconf 2.73-1 [installed]
+core automake 1.18.1-1 [installed]
+core b43-fwcutter 020-1
+core base 3-3 [installed]
+core base-devel 1-2 [installed]
+core bash 5.3.15-1 [installed]
+core binutils 2.47-4 [installed]
+core bison 3.8.2-8 [installed]
+core brotli 1.2.0-1 [installed]
+core brotli-testdata 1.2.0-1
+core btrfs-progs 7.1-1
+core bzip2 1.0.8-6 [installed]
+core ca-certificates 20240618-1 [installed]
+core ca-certificates-mozilla 3.128-1 [installed: 3.127-1]
+core ca-certificates-utils 20240618-1 [installed]
+core coreutils 9.11-2 [installed]
+core cracklib 2.10.3-1
+core cryptsetup 2.8.7-1 [installed]
+core curl 8.21.0-1 [installed]
+core dash 0.5.13.4-1
+core db 6.2.32-4
+core db5.3 5.3.28-7 [installed]
+core dbus 1.16.2-1 [installed]

@@ -1,0 +1,5 @@
+===== liboqs PKGBUILD SYNTAX =====
+exit status: 0
+
+===== oqsprovider PKGBUILD SYNTAX =====
+exit status: 0

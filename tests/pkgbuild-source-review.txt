@@ -1,0 +1,172 @@
+===== liboqs PKGBUILD =====
+# Maintainer: Iyán Méndez Veiga <me (at) iyanmv (dot) com>
+pkgname=liboqs
+pkgver=0.16.0
+pkgrel=1
+epoch=1
+pkgdesc="C library for prototyping and experimenting with quantum-resistant cryptography"
+arch=(x86_64)
+url="https://openquantumsafe.org/liboqs/"
+license=(MIT)
+depends=(
+    gcc-libs
+    openssl
+)
+makedepends=(
+    cmake
+    doxygen
+    gcc
+    git
+    ninja
+    python # required for generating the docs
+)
+checkdepends=(
+    python-pytest
+    python-pytest-xdist
+    python-requests
+    python-yaml
+)
+source=($pkgname::git+https://github.com/open-quantum-safe/$pkgname.git#tag=${pkgver//_/-})
+b2sums=('add5a688b6401f383cc955fa00a975e3aab0f1a5236a912a3a72c0aa9b9b6cc5f63cd17c09ab6f815a0fdd1047d89399d288f0eee73c3172fa2d575176d8eb46')
+
+build() {
+    cmake -G Ninja -B build -S $pkgname\
+        -DBUILD_SHARED_LIBS=ON \
+        -DCMAKE_BUILD_TYPE=None \
+        -DCMAKE_INSTALL_PREFIX="$pkgdir"/usr \
+        -DOQS_ALGS_ENABLED=All \
+        -DOQS_BUILD_ONLY_LIB=OFF \
+        -DOQS_DIST_BUILD=ON \
+        -DOQS_USE_OPENSSL=ON \
+        -DOQS_MEMOPT_BUILD=OFF \
+        -DOQS_DLOPEN_OPENSSL=OFF \
+        -DOQS_USE_AES_OPENSSL=ON \
+        -DOQS_USE_SHA2_OPENSSL=ON \
+        -DOQS_USE_SHA3_OPENSSL=ON \
+        -DOQS_ENABLE_SIG_STFL_XMSS=ON \
+        -DOQS_ENABLE_SIG_STFL_LMS=ON \
+        -DOQS_HAZARDOUS_EXPERIMENTAL_ENABLE_SIG_STFL_KEY_SIG_GEN=ON \
+        -DOQS_LIBJADE_BUILD=ON \
+        -DOQS_OPT_TARGET=x86-64 \
+        -DOQS_STRICT_WARNINGS=ON \
+        -Wno-dev
+    ninja -C build
+    ninja -C build gen_docs
+}
+
+check() {
+    ninja -C build run_tests
+}
+
+package() {
+    ninja -C build install
+    install -D -m0644 $pkgname/LICENSE.txt "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+    install -d "$pkgdir"/usr/share/doc/
+    cp -r build/docs/html "$pkgdir"/usr/share/doc/$pkgname
+}
+
+===== oqsprovider PKGBUILD =====
+# Maintainer: Iyán Méndez Veiga <me (at) iyanmv (dot) com>
+pkgname=oqsprovider
+_pkgname=oqs-provider
+pkgver=0.11.0
+_pkgverliboqs=0.15.0
+pkgrel=1
+epoch=1
+pkgdesc="OpenSSL 3 provider containing post-quantum algorithms"
+arch=(x86_64)
+url=https://openquantumsafe.org/applications/tls.html#oqs-openssl-provider
+license=(MIT)
+depends=(
+    liboqs
+    openssl
+)
+makedepends=(
+    cmake
+    git
+    python
+    python-jinja
+    python-tabulate
+    python-yaml
+)
+provides=(oqsprovider.so)
+install=$pkgname.install
+source=(
+    $pkgname::git+https://github.com/open-quantum-safe/$_pkgname.git#tag=refs/tags/$pkgver
+    liboqs::git+https://github.com/open-quantum-safe/liboqs.git#tag=$_pkgverliboqs
+    enable-algs-tls.patch
+)
+b2sums=('df5b81c3c4852de30878d4ea2fa0d9cec6d64a7527bd82523e1196d2df3952c05981d334f7472a369ab52f240f0321fb95130320de030d6c5846133fc49c76de'
+        '919a66cd10b01fb4c87bbd601fa9d128303ebbbc6ca182e7b7e616c317ef2bf23e1a7e4e55282cee325eb5546ec7d76b6c6b4d20afe13e30879f630d849f2dfd'
+        'f52bb2995ae63be98a4eb28d47389a61dbce62f7d46e918f031f825229465e8188a4c65cc7f15d7aa2ffd21db887f933b67e60b3c3827dedb173508ca1c68404')
+
+prepare() {
+    cd $pkgname
+    patch -Np1 < ../enable-algs-tls.patch
+    # Some files are needed from the liboqs source code or generate.py will fail
+    LIBOQS_SRC_DIR="$srcdir"/liboqs python oqs-template/generate.py
+}
+
+build() {
+    cmake -B build -S $pkgname \
+        -DCMAKE_BUILD_TYPE=None \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -Wno-dev
+    cmake --build build
+}
+
+check() {
+    cd build
+    ctest --verbose
+}
+
+package() {
+    install -D -m0755 build/lib/oqsprovider.so "$pkgdir"/usr/lib/ossl-modules/oqsprovider.so
+    install -D -m0644 $pkgname/LICENSE.txt "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
+
+===== oqsprovider INSTALL SCRIPT =====
+post_install() {
+    echo -------------------------------------------------------------
+    echo '-> Optionally enable the provider in /etc/ssl/openssl.cnf:'
+    echo '[provider_sect]'
+    echo 'default = default_sect'
+    echo 'oqsprovider = oqsprovider_sect'
+    echo ''
+    echo '[default_sect]'
+    echo 'activate = 1'
+    echo ''
+    echo '[oqsprovider_sect]'
+    echo 'activate = 1'
+    echo ''
+    echo '-> Optionally limit the available sig algs for TLS'
+    echo '   Some servers may fail with too many sig algs.'
+    echo '   See: https://github.com/open-quantum-safe/oqs-provider/issues/399'
+    echo ''
+    echo '[openssl_init]'
+    echo '# ...'
+    echo 'ssl_conf = ssl_configuration'
+    echo ''
+    echo '[ssl_configuration]'
+    echo 'system_default = tls_system_default'
+    echo ''
+    echo '[tls_system_default]'
+    echo 'SignatureAlgorithms = ECDSA+SHA256:ECDSA+SHA384:ECDSA+SHA512:ed25519:ed448:rsa_pss_pss_sha256:rsa_pss_pss_sha384:rsa_pss_pss_sha512:rsa_pss_rsae_sha256:rsa_pss_rsae_sha384:rsa_pss_rsae_sha512:RSA+SHA256:RSA+SHA384:RSA+SHA512:ECDSA+SHA224:RSA+SHA224'
+    echo 'Groups = X25519:secp256r1:X448:secp521r1:secp384r1:ffdhe2048:ffdhe3072:ffdhe4096:ffdhe6144:ffdhe8192'
+    echo -------------------------------------------------------------
+}
+
+post_remove() {
+    echo -------------------------------------------------------------
+    echo '-> Remove oqsprovider from /etc/ssl/openssl.cnf:'
+    echo '[provider_sect]'
+    echo 'default = default_sect'
+    echo '# oqsprovider = oqsprovider_sect'
+    echo ''
+    echo '[default_sect]'
+    echo '# activate = 1'
+    echo ''
+    echo '# [oqsprovider_sect]'
+    echo '# activate = 1'
+    echo -------------------------------------------------------------
+}

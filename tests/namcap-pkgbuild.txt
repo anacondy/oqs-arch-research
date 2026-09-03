@@ -1,0 +1,3 @@
+===== namcap: liboqs =====
+
+===== namcap: oqsprovider =====

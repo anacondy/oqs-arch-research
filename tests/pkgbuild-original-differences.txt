@@ -1,0 +1,3 @@
+===== liboqs PKGBUILD DIFFERENCE =====
+
+===== oqsprovider PKGBUILD DIFFERENCE =====

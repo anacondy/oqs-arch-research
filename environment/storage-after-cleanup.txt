@@ -1,0 +1,6 @@
+===== STORAGE AFTER PACMAN CACHE CLEANUP =====
+2026-09-03T16:58:35+05:30
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        30G   24G  5.0G  83% /
+2.3G	/var/cache/pacman/pkg
+752K	.

@@ -1,0 +1,12 @@
+===== SHARED FOLDER CONFIGURATION =====
+2026-09-03T22:39:32+05:30
+
+/etc/fstab entry:
+SharedKDE /home/simone/Shared vboxsf uid=1000,gid=1000,dmode=0755,fmode=0644,_netdev,x-systemd.automount 0 0
+
+Current mount:
+TARGET              SOURCE    FSTYPE OPTIONS
+/home/simone/Shared SharedKDE vboxsf rw,nodev,relatime,iocharset=utf8,uid=1000,gid=1000,dmode=0755,fmode=0644
+
+Filesystem type:
+vboxsf

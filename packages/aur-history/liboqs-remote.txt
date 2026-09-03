@@ -1,0 +1,2 @@
+origin	https://aur.archlinux.org/liboqs.git (fetch)
+origin	https://aur.archlinux.org/liboqs.git (push)

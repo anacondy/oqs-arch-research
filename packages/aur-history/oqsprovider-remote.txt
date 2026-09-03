@@ -1,0 +1,2 @@
+origin	https://aur.archlinux.org/oqsprovider.git (fetch)
+origin	https://aur.archlinux.org/oqsprovider.git (push)

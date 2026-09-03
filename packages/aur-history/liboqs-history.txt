@@ -1,0 +1,32 @@
+62271f5 upgpkg: liboqs 1:0.16.0-1
+662e036 upgpkg: liboqs 1:0.15.0-1
+b3af877 upgpkg: liboqs 1:0.14.0-6
+f38e453 upgpkg: liboqs 1:0.14.0-5
+4f534c4 upgpkg: liboqs 1:0.14.0-4
+0273853 upgpkg: liboqs 1:0.14.0-3
+e64aa1e upgpkg: liboqs 1:0.14.0-2
+e3f96a2 upgpkg: liboqs 1:0.14.0-1
+56419e6 upgpkg: liboqs 1:0.13.0-1
+9dc6810 upgpkg: liboqs 1:0.12.0-3
+f25cee8 upgpkg: liboqs 1:0.12.0-2
+dd2b2b4 upgpkg: liboqs 1:0.12.0-1
+47ba1d0 upgpkg: liboqs 1:0.11.0-1
+47b83a3 upgpkg: liboqs 1:0.10.1-1
+87896d5 upgpkg: liboqs 1:0.10.0-2
+c133c4e upgpkg: liboqs 1:0.10.0-1
+8f24c52 upgpkg: liboqs 1:0.9.2-1
+db797c9 upgpkg: liboqs 1:0.9.1-1
+665c676 Remove old comment
+7d1977e upgpkg: liboqs 1:0.9.0-2 fix docs
+09899e1 upgpkg: liboqs 1:0.9.0-1
+fca34c3 upgpkg: liboqs 1:0.8.0-1
+25ab39a Delete unneeded patch
+ca37212 upgpkg: liboqs 0.8.0_rc1-1
+d9eecf4 upgpkg: liboqs 0.7.2-7
+d534e9b upgpkg: liboqs 0.7.2-6
+d599fa5 upgpkg: liboqs 0.7.2-5: remove algs
+b9b46ec upgpkg: liboqs 0.7.2-4: add docs
+d1d0a46 upgpkg: liboqs 0.7.2-3
+97d61e0 Add liboqs and oqsprovider to nvchecker
+f335be2 upgpkg: liboqs 0.7.2-2
+715d458 Initial commit

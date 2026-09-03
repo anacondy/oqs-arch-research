@@ -1,0 +1,13 @@
+===== INSTALLED REQUIRED PACKAGES =====
+base-devel 1-2
+git 2.55.0-1
+gcc 16.2.1+r23+gd564253eb6c8-1
+cmake 4.4.3-1
+ninja 1.13.2-3
+openssl 3.6.4-1
+python 3.14.7-1
+python-pytest 1:9.1.0-1
+python-pytest-xdist 3.8.0-3
+python-requests 2.34.2-1
+python-yaml 6.0.3-2
+namcap 3.6.0-3

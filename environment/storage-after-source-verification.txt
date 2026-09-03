@@ -1,0 +1,8 @@
+===== STORAGE AFTER SOURCE VERIFICATION =====
+2026-09-03T22:26:27+05:30
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        30G   22G  6.4G  78% /
+614M	.
+305M	packages/liboqs-aur/liboqs
+3.2M	packages/oqsprovider-aur/oqsprovider
+305M	packages/oqsprovider-aur/liboqs

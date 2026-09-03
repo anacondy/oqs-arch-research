@@ -1,0 +1,6 @@
+===== STORAGE AFTER DEPENDENCY INSTALLATION AND CACHE CLEANUP =====
+2026-09-03T17:37:33+05:30
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        30G   22G  7.0G  76% /
+964K	.
+160K	/var/cache/pacman/pkg

@@ -1,0 +1,23 @@
+===== liboqs BUILD DEPENDENCIES =====
+gcc-libs 16.2.1+r23+gd564253eb6c8-1
+openssl 3.6.4-1
+cmake 4.4.3-1
+doxygen 1.18.0-1
+gcc 16.2.1+r23+gd564253eb6c8-1
+git 2.55.0-1
+ninja 1.13.2-3
+python 3.14.7-1
+python-pytest 1:9.1.0-1
+python-pytest-xdist 3.8.0-3
+python-requests 2.34.2-1
+python-yaml 6.0.3-2
+
+===== oqsprovider BUILD DEPENDENCIES =====
+error: package 'liboqs' was not found
+openssl 3.6.4-1
+cmake 4.4.3-1
+git 2.55.0-1
+python 3.14.7-1
+python-jinja 1:3.1.6-3
+python-tabulate 0.10.0-1
+python-yaml 6.0.3-2

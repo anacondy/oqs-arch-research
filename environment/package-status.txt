@@ -1,0 +1,14 @@
+===== REQUIRED PACKAGE STATUS =====
+base-devel 1-2
+git 2.55.0-1
+gcc 16.2.1+r23+gd564253eb6c8-1
+cmake NOT INSTALLED
+ninja NOT INSTALLED
+openssl 3.6.4-1
+python 3.14.7-1
+python-pytest NOT INSTALLED
+python-pytest-xdist NOT INSTALLED
+python-requests NOT INSTALLED
+python-yaml 6.0.3-2
+namcap NOT INSTALLED
+devtools NOT INSTALLED
